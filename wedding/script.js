@@ -36,6 +36,34 @@ document.addEventListener('click', () => {
     }
 });
 
+// ============= MENU ĐIỀU HƯỚNG NHANH =============
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    });
+}
+
+// Đóng menu khi nhấn vào link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    });
+});
+
+// Đóng menu khi click bên ngoài
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.quick-nav')) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    }
+});
+
 // ============= TẠO HIỆU ỨNG TUYẾT RƠI =============
 function createSnowflakes() {
     const snowContainer = document.getElementById('snow-container');
@@ -371,6 +399,87 @@ window.addEventListener('load', () => {
         console.log('Cần tương tác để phát nhạc');
     });
 });
+
+// ============= SCROLL REVEAL ANIMATION =============
+function initScrollReveal() {
+    const sections = document.querySelectorAll('section');
+    const titles = document.querySelectorAll('.section-title');
+    const textElements = document.querySelectorAll('.subtitle, .couple-name, .story-title, .message-text, .gratitude-text');
+    const familyElements = document.querySelectorAll('.family-info');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-reveal', 'visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Animation cho title
+    const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const animations = ['animate-fade-left', 'animate-fade-right', 'animate-bounce', 'animate-slide-up', 'animate-zoom'];
+                const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+                entry.target.classList.add(randomAnimation);
+                entry.target.style.animationDelay = (index * 0.1) + 's';
+                titleObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    titles.forEach(title => {
+        title.style.opacity = '0';
+        titleObserver.observe(title);
+    });
+
+    // Animation cho text elements
+    const textObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                const animations = ['animate-fade-left', 'animate-fade-right', 'animate-wave', 'animate-slide-up'];
+                const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+                entry.target.classList.add(randomAnimation);
+                entry.target.style.animationDelay = (index * 0.15) + 's';
+                textObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -80px 0px'
+    });
+
+    textElements.forEach(element => {
+        element.style.opacity = '0';
+        textObserver.observe(element);
+    });
+
+    // Observer 4: Family elements
+    const familyElements = document.querySelectorAll('.family-info');
+    const familyObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = (index * 0.2) + 's';
+                familyObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+    familyElements.forEach(element => familyObserver.observe(element));
+}
+
+// Khởi tạo scroll reveal
+initScrollReveal();
 
 // ============= HIỆU Ứng VÙNG DỄ TƯƠNG TÁC =============
 function addInteractiveEffects() {
