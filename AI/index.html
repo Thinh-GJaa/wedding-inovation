@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Cưới - Tình Yêu Vĩnh Cửu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Nền hạt tuyết rơi lãng mạn -->
+    <div id="snow-container"></div>
+
+    <!-- Nhạc nền -->
+    <audio id="bgMusic" autoplay loop volume="0.3">
+        <source src="https://assets.mixkit.co/active_storage/musics/50142-2ae4a1b4-d8db-49fd-a96d-3fb92e3b3f71.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Nút điều khiển âm lượng -->
+    <button id="musicToggle" class="music-toggle" title="Bật/Tắt nhạc">
+        <span>🔊</span>
+    </button>
+
+    <!-- Menu Điều Hướng Nhanh -->
+    <nav class="quick-nav">
+        <button class="nav-toggle" id="navToggle" title="Mở menu">☰</button>
+        <div class="nav-menu">
+            <a href="#section-couple" class="nav-link">💑 Cặp Đôi</a>
+            <a href="#section-details" class="nav-link">📅 Chi Tiết</a>
+            <a href="#section-venues" class="nav-link">📍 Địa Điểm</a>
+            <a href="#section-map" class="nav-link">🗺️ Bản Đồ</a>
+            <a href="#section-timeline" class="nav-link">💒 Lịch Trình</a>
+            <a href="#section-info" class="nav-link">ℹ️ Thông Tin</a>
+            <a href="#section-rsvp" class="nav-link">💝 RSVP</a>
+            <a href="#section-gallery" class="nav-link">📸 Ảnh</a>
+        </div>
+    </nav>
+
+    <!-- Hiệu ứng pháo hoa -->
+    <canvas id="fireworks"></canvas>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        <!-- Phần mở đầu hoành tráng và lãng mạn -->
+        <section class="grand-opening fade-in-up" style="animation-delay: 0s">
+            <div class="opening-background">
+                <div class="opening-light opening-light-1"></div>
+                <div class="opening-light opening-light-2"></div>
+                <div class="opening-light opening-light-3"></div>
+            </div>
+            
+            <div class="opening-content">
+                <div class="opening-top fade-in-up" style="animation-delay: 0.3s">
+                    <p class="opening-intro">Hai trái tim, một tình yêu</p>
+                    <p class="opening-subtitle-small">Một câu chuyện đẹp bắt đầu</p>
+                </div>
+
+                <div class="opening-names fade-in-up" style="animation-delay: 0.6s">
+                    <div class="name-wrapper">
+                        <h2 class="opening-name bride-name">Nguyễn Thị Linh</h2>
+                        <span class="name-connector">✧</span>
+                        <h2 class="opening-name groom-name">Trần Minh Hưng</h2>
+                    </div>
+                </div>
+
+                <div class="opening-divider fade-in-up" style="animation-delay: 0.9s">
+                    <span class="divider-flower">✿</span>
+                    <span class="divider-line"></span>
+                    <span class="divider-flower">✿</span>
+                </div>
+
+                <div class="opening-date fade-in-up" style="animation-delay: 1.2s">
+                    <p class="opening-date-text">Vinh dự kính mời bạn dự lễ cưới</p>
+                    <p class="opening-date-value">12 • 13 Tháng 12 Năm 2025</p>
+                </div>
+
+                <div class="opening-description fade-in-up" style="animation-delay: 1.5s">
+                    <p class="opening-desc-text">
+                        Hai trái tim cùng hội tụ để tạo nên một cuộc sống tươi sáng,<br>
+                        <span class="text-highlight">Tình yêu vĩnh cửu bắt đầu từ hôm nay</span>
+                    </p>
+                </div>
+
+                <div class="opening-scroll fade-in-up" style="animation-delay: 1.8s">
+                    <span class="scroll-text">Cuộn xuống để xem chi tiết</span>
+                    <div class="scroll-icon">
+                        <span>⬇</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trang trí hoa tuyệt đẹp -->
+            <div class="opening-flowers">
+                <span class="flower flower-1">🌸</span>
+                <span class="flower flower-2">🌹</span>
+                <span class="flower flower-3">💐</span>
+                <span class="flower flower-4">🌷</span>
+                <span class="flower flower-5">🌺</span>
+            </div>
+        </section>
+
+        <!-- Phần tiêu đề chính -->
+        <section class="hero">
+            <div class="hero-content fade-in-up" style="animation-delay: 0.2s">
+                <h1 class="title fade-in-up" style="animation-delay: 0.4s">
+                    <span class="heart">💕</span>
+                </h1>
+                <p class="subtitle fade-in-up" style="animation-delay: 0.6s">Chúng tôi vinh dự mời bạn</p>
+                <p class="subtitle fade-in-up" style="animation-delay: 0.8s">đến dự lễ cưới của chúng tôi</p>
+                <div class="divider fade-in-up" style="animation-delay: 1s"></div>
+            </div>
+        </section>
+
+        <!-- Phần ảnh cặp đôi -->
+        <section id="section-couple" class="couple-photos fade-in-up" style="animation-delay: 1.2s">
+            <h3 class="section-title">💑 Chúng Tôi</h3>
+            <div class="photos-grid">
+                <div class="photo-item bride-photo">
+                    <div class="photo-placeholder">👰</div>
+                    <p class="photo-label">Cô Dâu</p>
+                </div>
+                <div class="photo-item couple-photo">
+                    <div class="photo-placeholder">💑</div>
+                    <p class="photo-label">Ảnh Cặp Đôi</p>
+                </div>
+                <div class="photo-item groom-photo">
+                    <div class="photo-placeholder">🤵</div>
+                    <p class="photo-label">Chú Rể</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần cặp đôi - Thông tin chi tiết -->
+        <section class="couple fade-in-up" style="animation-delay: 1.4s">
+            <h3 class="section-title">💍 Cặp Đôi May Mắn</h3>
+            <div class="couple-content">
+                <div class="bride">
+                    <p class="couple-label">Cô Dâu</p>
+                    <h2 class="couple-name">Nguyễn Thị Linh</h2>
+                    <p class="couple-title">Cô gái xinh đẹp & tốt bụng</p>
+                    <p class="couple-detail">Sinh năm 1998 • Hà Nội</p>
+                    <p class="couple-quote">"Tìm thấy tình yêu của đời mình"</p>
+                    <div class="couple-divider"></div>
+                    <div class="couple-extra">
+                        <p class="extra-title">💝 Sở Thích</p>
+                        <p class="extra-text">Đọc sách, du lịch, nấu ăn</p>
+                        <p class="extra-title" style="margin-top: 15px;">🎓 Công Việc</p>
+                        <p class="extra-text">Nhân viên Marketing</p>
+                    </div>
+                </div>
+                <div class="and-symbol">
+                    <p>&</p>
+                </div>
+                <div class="groom">
+                    <p class="couple-label">Chú Rể</p>
+                    <h2 class="couple-name">Trần Minh Hưng</h2>
+                    <p class="couple-title">Chàng trai tốt bụng & lãng mạn</p>
+                    <p class="couple-detail">Sinh năm 1996 • Hà Nội</p>
+                    <p class="couple-quote">"Cuộc sống của tôi bị thay đổi"</p>
+                    <div class="couple-divider"></div>
+                    <div class="couple-extra">
+                        <p class="extra-title">💝 Sở Thích</p>
+                        <p class="extra-text">Bóng đá, chơi game, nhiếp ảnh</p>
+                        <p class="extra-title" style="margin-top: 15px;">🎓 Công Việc</p>
+                        <p class="extra-text">Kỹ Sư Phần Mềm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Câu chuyện tình yêu -->
+            <div class="love-story fade-in-up" style="animation-delay: 1.6s">
+                <h4 class="story-title">💕 Câu Chuyện Của Chúng Tôi</h4>
+                <div class="story-content">
+                    <p class="story-text">
+                        Linh và Minh gặp nhau tại một sự kiện công ty vào năm 2020. 
+                        Từ lúc đó, họ trở thành bạn bè thân thiết. Sau nhiều năm 
+                        cùng nhau chia sẻ những khoảnh khắc vui buồn, tình bạn 
+                        đã chuyển thành tình yêu thực sự.
+                    </p>
+                    <p class="story-text">
+                        Minh đã cầu hôn Linh vào ngày 14 tháng 2 năm 2024 tại công viên 
+                        Tây Hồ với một chiếc nhẫn kim cương tuyệt đẹp. Khoảnh khắc đó 
+                        trở thành kỷ niệm đẹp nhất của họ.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần ngày giờ -->
+        <section id="section-details" class="event-details fade-in-up" style="animation-delay: 1.6s">
+            <h3 class="section-title">📅 Chi Tiết Sự Kiện</h3>
+            <div class="details-card">
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <p class="detail-label">Ngày Lễ Vu Quy</p>
+                    <p class="detail-value">Thứ Sáu, 12 tháng 12 năm 2025</p>
+                    <p class="detail-time">14:00 - 16:00</p>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🕐</span>
+                    <p class="detail-label">Giờ Tiệc Cưới</p>
+                    <p class="detail-value">Thứ Bảy, 13 tháng 12 năm 2025</p>
+                    <p class="detail-time">17:00 - 23:00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần địa điểm chi tiết -->
+        <section id="section-venues" class="venues fade-in-up" style="animation-delay: 1.8s">
+            <h3 class="section-title">📍 Các Địa Điểm Sự Kiện</h3>
+            
+            <!-- Lễ Vu Quy -->
+            <div class="venue-section">
+                <h4 class="venue-subtitle">🏠 Lễ Vu Quy (Nhà Nữ)</h4>
+                <div class="venue-card">
+                    <p class="venue-name">Nhà Ông Bà Ngoại</p>
+                    <p class="venue-address">📌 123 Phố Bà Triệu, Quận Hoàn Kiếm, Hà Nội</p>
+                    <p class="venue-phone">📞 (024) 3825-1234</p>
+                    <p class="venue-time">⏰ 14:00 - 16:00</p>
+                </div>
+            </div>
+
+            <!-- Tiệc Cưới -->
+            <div class="venue-section">
+                <h4 class="venue-subtitle">🎊 Tiệc Cưới Chính</h4>
+                <div class="venue-card">
+                    <p class="venue-name">Nhà Hàng Hoa Lâu</p>
+                    <p class="venue-address">📌 456 Đường Tây Hồ, Quận Tây Hồ, Hà Nội</p>
+                    <p class="venue-phone">📞 (024) 3827-5678</p>
+                    <p class="venue-time">⏰ 17:00 - 23:00</p>
+                    <p class="venue-parking">🚗 Có chỗ đỗ xe</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Map -->
+        <section id="section-map" class="map-section fade-in-up" style="animation-delay: 2s">
+            <h3 class="section-title">🗺️ Bản Đồ Chỉ Đường</h3>
+            <div class="maps-container">
+                <div class="map-item">
+                    <h4>🏠 Lễ Vu Quy</h4>
+                    <p class="map-address">123 Phố Bà Triệu, Hoàn Kiếm, Hà Nội</p>
+                    <div class="map-frame">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9828662428366!2d105.84692!3d21.02857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc08f7e3195%3A0x123!2zMjEuMDI4NTcsIDEwNS44NDY5Mg!5e0!3m2!1svi!2s!4v1234567890" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map-info">
+                        <p class="map-detail">📞 (024) 3825-1234</p>
+                        <p class="map-detail">⏰ 14:00 - 16:00</p>
+                        <a href="https://maps.google.com/?q=21.02857,105.84692" target="_blank" class="map-link">Mở Google Maps</a>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <h4>🎊 Tiệc Cưới Chính</h4>
+                    <p class="map-address">456 Đường Tây Hồ, Tây Hồ, Hà Nội</p>
+                    <div class="map-frame">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8944782428318!2d105.81392!3d21.03457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aba8c3e3c3c3%3A0x456!2zMjEuMDM0NTcsIDEwNS44MTM5Mg!5e0!3m2!1svi!2s!4v1234567890" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map-info">
+                        <p class="map-detail">📞 (024) 3827-5678</p>
+                        <p class="map-detail">⏰ 17:00 - 23:00</p>
+                        <p class="map-detail">🚗 Có chỗ đỗ xe</p>
+                        <a href="https://maps.google.com/?q=21.03457,105.81392" target="_blank" class="map-link">Mở Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="maps-guide">
+                <h4 class="guide-title">📍 Hướng Dẫn Sử Dụng Bản Đồ</h4>
+                <div class="guide-content">
+                    <p><strong>Để thay đổi vị trí:</strong></p>
+                    <ol>
+                        <li>Mở <a href="https://maps.google.com" target="_blank">Google Maps</a></li>
+                        <li>Tìm kiếm địa chỉ hoặc tên nơi bạn muốn (Ví dụ: "Nhà thờ Giáo xứ Vĩnh Phước")</li>
+                        <li>Nhấn chuột phải vào địa điểm → Chọn "Share"</li>
+                        <li>Chọn tab "Embed a map"</li>
+                        <li>Copy mã iframe và thay thế trong HTML</li>
+                    </ol>
+                    <p class="guide-example"><strong>Ví dụ:</strong> Để tìm nhà thờ, hãy tìm kiếm "Nhà thờ Giáo xứ Vĩnh Phước" trên Google Maps</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần thông tin chi tiết lễ cưới -->
+        <section id="section-timeline" class="ceremony-details fade-in-up" style="animation-delay: 2.4s">
+            <h3 class="section-title">💒 Lịch Trình Chi Tiết</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-content">
+                        <h4>Lễ Vu Quy</h4>
+                        <p>Đón dâu tại nhà cô dâu, thực hiện các nghi lễ truyền thống</p>
+                        <p class="timeline-location">📍 123 Phố Bà Triệu, Hà Nội</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:30</div>
+                    <div class="timeline-content">
+                        <h4>Áo Dài & Chuẩn Bị</h4>
+                        <p>Chuyên chở về nhà chú rể, chuẩn bị áo dài và thực hiện nghi lễ</p>
+                        <p class="timeline-location">📍 789 Đường Lý Thái Tổ, Hà Nội</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h4>Tiệc Cưới Chính - Đón Khách</h4>
+                        <p>Tiệc trưa chiều bắt đầu, đón tiếp khách mời tại sảnh</p>
+                        <p class="timeline-location">📍 456 Đường Tây Hồ, Hà Nội</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-content">
+                        <h4>Lễ Thay Áo Cưới</h4>
+                        <p>Cô dâu, chú rể thay áo cưới trắng bắc thế tiến hành lễ</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:30</div>
+                    <div class="timeline-content">
+                        <h4>Lễ Cưới Truyền Thống</h4>
+                        <p>Cầu hôn, nghi lễ trồng cây, cắt bánh và khiêu vũ</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <h4>Tối Vui & Giải Trí</h4>
+                        <p>Ăn tối, múa hát, chơi trò chơi vui nhộn cùng khách mời</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">22:00</div>
+                    <div class="timeline-content">
+                        <h4>Tiệc Kết Thúc</h4>
+                        <p>Tiễn khách mời, chúc phúc hạnh phúc cho cô dâu chú rể</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần thông tin hữu ích -->
+        <section id="section-info" class="useful-info fade-in-up" style="animation-delay: 2.6s">
+            <h3 class="section-title">ℹ️ Thông Tin Hữu Ích</h3>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>🎁 Quà Cưới</h4>
+                    <p>Quà cưới nếu có thể gửi đến:</p>
+                    <p class="info-detail">Trần Minh Hưng & Nguyễn Thị Linh</p>
+                    <p class="info-detail">📧 Email: linh.minh.wedding@email.com</p>
+                    <p class="info-detail">💳 Vietcombank: 123456789</p>
+                    <p class="info-detail">💳 Techcombank: 1234567890</p>
+                    <p class="info-highlight">💝 Sự hiện diện của bạn là quà tặng lớn nhất</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>👔 Dress Code</h4>
+                    <div class="dress-code-detail">
+                        <p class="dress-label">👰 Nữ Khách:</p>
+                        <p>✨ Váy dạ hội lịch sự</p>
+                        <p>✨ Áo dài truyền thống</p>
+                        <p>✨ Bộ trang phục trang trọng</p>
+                        <p class="dress-label" style="margin-top: 15px;">🤵 Nam Khách:</p>
+                        <p>✨ Áo tuxedo/vest</p>
+                        <p>✨ Áo dài truyền thống</p>
+                        <p>✨ Bộ suit lịch sự</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>🚗 Giao Thông & Đỗ Xe</h4>
+                    <p><strong>📍 Lễ Vu Quy:</strong></p>
+                    <p>Bãi đỗ xe sẵn có</p>
+                    <p><strong>📍 Tiệc Cưới Chính:</strong></p>
+                    <p>Bãi đỗ xe rộng rãi</p>
+                    <p><strong>🚕 Gợi Ý:</strong></p>
+                    <p>Grab, Taxi, hoặc xe riêng</p>
+                    <p class="info-highlight">⏰ Vui lòng đến sớm 15 phút</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>🍽️ Menu Tiệc Cưới</h4>
+                    <div class="menu-detail">
+                        <p class="menu-label">🍜 Khai Vị:</p>
+                        <p>Gỏi cuốn tôm, Gỏi cá hồi, Chả cua</p>
+                        <p class="menu-label">🦐 Chính:</p>
+                        <p>Cua hoàng gia, Cá hấp saffron, Tôm nướng</p>
+                        <p class="menu-label">🍰 Tráng Miệng:</p>
+                        <p>Bánh cưới 5 tầng, Kem lạnh sang trọng</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>📸 Chụp Ảnh & Video</h4>
+                    <p>✅ Chụp ảnh tự do tại sảnh tiệc</p>
+                    <p>✅ Máy ảnh chuyên nghiệp có mặt</p>
+                    <p>Chia sẻ ảnh:</p>
+                    <p class="hashtag">#LinVaMinh #DamCuoiLinh2025</p>
+                    <p class="info-detail">Tag chúng tôi trên Facebook & Instagram</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>🎵 Bài Hát Yêu Thích</h4>
+                    <div class="music-list">
+                        <p><strong>🎼 Lễ Vu Quy:</strong></p>
+                        <p>"Hôn Nhân" - Sơn Tùng M-TP</p>
+                        <p><strong>🎼 Tiệc Cưới:</strong></p>
+                        <p>"Perfect" - Ed Sheeran</p>
+                        <p>"All of Me" - John Legend</p>
+                        <p>"Vợ Tương Lai" - Sơn Tùng</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>⭐ Lưu Ý Quan Trọng</h4>
+                    <div class="notes">
+                        <p>✓ Vui lòng RSVP trước ngày 10/12/2025</p>
+                        <p>✓ Nếu có người kèm theo, vui lòng báo trước</p>
+                        <p>✓ Nếu có dị ứng thực phẩm, thông báo sớm</p>
+                        <p>✓ Tắt chế độ im lặng điện thoại trong lễ</p>
+                        <p>✓ Vui vẻ, thoải mái cùng chúng tôi!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="message fade-in-up" style="animation-delay: 1.8s">
+            <h3 class="section-title">💌 Lời Ngỏ</h3>
+            <div class="message-card">
+                <p class="message-text">
+                    Trải qua những năm tháng bên nhau, chúng tôi đã học được rằng tình yêu thực sự 
+                    là sự chia sẻ từng khoảnh khắc, từng nụ cười và từng trái tim. 
+                    Hôm nay, chúng tôi muốn chia sẻ niềm vui này cùng những người thân yêu nhất.
+                </p>
+                <p class="message-text">
+                    Sự hiện diện của bạn sẽ là điều tuyệt vời nhất với chúng tôi.
+                </p>
+            </div>
+        </section>
+
+        <!-- Phần danh sách khách mời -->
+        <section id="section-rsvp" class="rsvp fade-in-up" style="animation-delay: 2s">
+            <h3 class="section-title">💝 Xác Nhận Tham Dự</h3>
+            <div class="rsvp-card">
+                <p class="rsvp-text">Vui lòng xác nhận tham dự trước ngày 10 tháng 12</p>
+                <p class="rsvp-contact">
+                    📱 Linh: 0987-654-321<br>
+                    📱 Minh: 0912-345-678<br>
+                    📧 Email: linh.minh@wedding.vn
+                </p>
+            </div>
+        </section>
+
+        <!-- Phần thông tin gia đình -->
+        <section id="section-gallery" class="families fade-in-up" style="animation-delay: 2.2s">
+            <h3 class="section-title">👨‍👩‍👧 Gia Đình Cô Dâu & Chú Rể</h3>
+            
+            <div class="families-content">
+                <div class="family-info bride-family">
+                    <h4 class="family-title">🌸 Gia Đình Cô Dâu</h4>
+                    <p class="family-name"><strong>Ông bà ngoại:</strong></p>
+                    <p class="family-detail">Ông: Nguyễn Văn Anh</p>
+                    <p class="family-detail">Bà: Trần Thị Bích</p>
+                    <p class="family-name"><strong>Bố mẹ:</strong></p>
+                    <p class="family-detail">Cha: Nguyễn Hữu Chiến</p>
+                    <p class="family-detail">Mẹ: Hoàng Thị Hạ</p>
+                    <p class="family-name"><strong>Địa chỉ:</strong></p>
+                    <p class="family-detail">123 Phố Bà Triệu, Hoàn Kiếm, Hà Nội</p>
+                </div>
+
+                <div class="family-info groom-family">
+                    <h4 class="family-title">🌹 Gia Đình Chú Rể</h4>
+                    <p class="family-name"><strong>Ông bà ngoại:</strong></p>
+                    <p class="family-detail">Ông: Trần Văn Hùng</p>
+                    <p class="family-detail">Bà: Đỗ Thị Vân</p>
+                    <p class="family-name"><strong>Bố mẹ:</strong></p>
+                    <p class="family-detail">Cha: Trần Minh Phú</p>
+                    <p class="family-detail">Mẹ: Lê Thị Hương</p>
+                    <p class="family-name"><strong>Địa chỉ:</strong></p>
+                    <p class="family-detail">789 Đường Lý Thái Tổ, Ba Đình, Hà Nội</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần QR Chuyển Khoản -->
+        <section class="qr-section fade-in-up" style="animation-delay: 2.2s">
+            <h3 class="section-title">💳 QR Chuyển Khoản</h3>
+            <div class="qr-container">
+                <div class="qr-item">
+                    <h4 class="qr-title">Chuyển Khoản Cho Cô Dâu</h4>
+                    <div class="qr-placeholder">
+                        <p class="qr-icon">📱</p>
+                        <p class="qr-code-text">QR Code</p>
+                    </div>
+                    <p class="qr-name">Nguyễn Thị Linh</p>
+                    <p class="qr-bank">Vietcombank</p>
+                    <p class="qr-account">STK: 0987654321</p>
+                </div>
+                <div class="qr-divider"></div>
+                <div class="qr-item">
+                    <h4 class="qr-title">Chuyển Khoản Cho Chú Rể</h4>
+                    <div class="qr-placeholder">
+                        <p class="qr-icon">📱</p>
+                        <p class="qr-code-text">QR Code</p>
+                    </div>
+                    <p class="qr-name">Trần Minh Hưng</p>
+                    <p class="qr-bank">Techcombank</p>
+                    <p class="qr-account">STK: 1234567890</p>
+                </div>
+            </div>
+            <p class="qr-note">💝 Cảm ơn bạn đã chia sẻ niềm vui cùng chúng tôi!</p>
+        </section>
+
+        <section class="gratitude fade-in-up" style="animation-delay: 2.4s">
+            <h3 class="section-title">🙏 Cảm Ơn</h3>
+            <div class="gratitude-card">
+                <p class="gratitude-text">
+                    Chúng tôi xin cảm ơn sâu sắc những lời chúc phúc và sự hỗ trợ của bạn. 
+                    Tình yêu và hỗ trợ của bạn là động lực để chúng tôi tiếp tục bước đi.
+                </p>
+            </div>
+        </section>
+
+        <!-- Phần chân trang -->
+        <section class="footer fade-in-up" style="animation-delay: 2.4s">
+            <p class="footer-text">✨ Tình Yêu Vĩnh Cửu ✨</p>
+            <p class="footer-date">Chúng Tôi + Bạn = Một Buổi Tiệc Tuyệt Vời</p>
+            <div class="footer-hearts">💕 💕 💕</div>
+        </section>
+    </div>
+
+    <!-- Hiệu ứng lá bay -->
+    <div class="leaves-container"></div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
